@@ -1,10 +1,10 @@
 0ad/
-"Android Open Source Project/"
+Android Open Source Project/
 BlueMail/
 Code/
 GIMP/
 Google/
-"Podman Desktop/"
+Podman Desktop/
 Projucer/
 QtProject.conf
 QtProject/
@@ -43,3 +43,5 @@ via-nativia/
 vifm/
 vlc/
 xfce4/
+"Android Open Source Project/"
+"Podman Desktop/"
