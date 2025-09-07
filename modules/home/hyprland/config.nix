@@ -171,13 +171,12 @@ bind = [
   "$mainMod SHIFT, Escape, exec, power-menu"
 
   # floating / dwindle / split
-  "$mainMod, V, togglefloating," # hyprland config wins
+  "$mainMod, F, togglefloating,"
   "$mainMod, P, pseudo,"
-  "$mainMod, J, togglesplit,"   # hyprland config wins
   "$mainMod, X, togglesplit,"   # nix extra
 
   # fullscreen
-  "$mainMod, F, fullscreen, 1" # hyprland config wins
+  "$mainMod,SHIFT, F, fullscreen, 1" # hyprland config wins
 
   # app launchers
   "$mainMod, D, exec, rofi -show drun || pkill rofi"
