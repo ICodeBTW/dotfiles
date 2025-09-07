@@ -5,10 +5,10 @@
   xdg.configFile."waypaper/config.ini".text = ''
     [Settings]
     language = en
-    folder = ~/Pictures/wallpapers/
+    folder=~/Pictures/wallpapers/
     monitors = All
-    wallpaper = ~/Pictures/wallpapers/wallpaper.jpeg
-    backend = swww
+    wallpaper=~/Pictures/wallpapers/wallpaper.jpeg
+    backend=swww
     fill = fill
     sort = name
     color = #ffffff
