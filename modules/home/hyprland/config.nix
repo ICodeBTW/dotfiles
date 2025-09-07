@@ -176,7 +176,7 @@ bind = [
   "$mainMod, X, togglesplit,"   # nix extra
 
   # fullscreen
-  "$mainMod,SHIFT, F, fullscreen, 1" # hyprland config wins
+  "$mainMod SHIFT, F, fullscreen, 1" # hyprland config wins
 
   # app launchers
   "$mainMod, D, exec, rofi -show drun || pkill rofi"
