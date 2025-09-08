@@ -14,7 +14,6 @@
         controlPersist = "10m";
       };
       
-      # Your GitHub configuration
       github = {
         host = "github.com";
         hostname = "ssh.github.com";
