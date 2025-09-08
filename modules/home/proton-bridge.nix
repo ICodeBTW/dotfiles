@@ -10,7 +10,7 @@ systemd.user.services.proton-bridge = {
   };
 
   Service = {
-    ExecStart = "${pkgs.protonmail-bridge}/bin/proton-bridge --noninteractive";
+    ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive";
     Restart = "on-failure";
   };
 
