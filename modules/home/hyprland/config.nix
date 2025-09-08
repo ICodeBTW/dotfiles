@@ -22,7 +22,8 @@ in
         "swww-daemon &"
 
         "systemctl --user start hyprpolkitagent"
-        # "protonmail-bridge --noninteractive"
+        "systemctl --user start proton-bridge"
+
         "hyprlock"
 
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
@@ -101,15 +102,15 @@ in
           xray = true;
         };
 
-        # shadow = {
-        #   enabled = true;
+        shadow = {
+          enabled = true;
 
-        #   ignore_window = true;
-        #   offset = "0 2";
-        #   range = 20;
-        #   render_power = 3;
-        #   color = "rgba(00000055)";
-        # };
+          ignore_window = true;
+          offset = "0 2";
+          range = 20;
+          render_power = 3;
+          color = "rgba(00000055)";
+        };
       };
 
       animations = {
@@ -411,7 +412,7 @@ bind = [
         "f[1], gapsout:0, gapsin:0"
       ];
 
-      monitor = [ "=,preferred,auto,auto" ];
+      monitor = [ "eDP-1, 1920x1080, 0x0, 1" "HDMI-A-1, 1920x1080, -1920x0, 1" ];
 
       xwayland = {
         force_zero_scaling = true;

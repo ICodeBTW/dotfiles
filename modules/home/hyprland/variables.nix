@@ -5,7 +5,7 @@
     __GL_GSYNC_ALLOWED = 0;
     __GL_VRR_ALLOWED = 0;
     _JAVA_AWT_WM_NONEREPARENTING = 1;
-    SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
+    # SSH_AUTH_SOCK = "/run/user/1000/ssh-agent";
     DISABLE_QT5_COMPAT = 0;
     GDK_BACKEND = "wayland";
     ANKI_WAYLAND = 1;
@@ -27,5 +27,15 @@
     CLUTTER_BACKEND = "wayland";
     GTK_THEME = "Colloid-Green-Dark-Gruvbox";
     GRIMBLAST_HIDE_CURSOR = 0;
+    GNOME_KEYRING_CONTROL = "";  # Will be set by gnome-keyring-daemon
+    GSM_SKIP_SSH_AGENT_WORKAROUND = 1;
   };
+
+  #Fallback 
+  home.sessionVariablesExtra = ''
+    if [ -z "$SSH_AUTH_SOCK" ]; then
+      export SSH_AUTH_SOCK="/run/user/1000/ssh-agent"
+    fi
+  '';
+
 }

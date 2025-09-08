@@ -5,5 +5,5 @@
   security.pam.services.swaylock = { };
   security.pam.services.hyprlock = { };
 
-    environment.systemPackages = with pkgs; [   cacert ];
+  environment.systemPackages = with pkgs; [   cacert ];
 }
