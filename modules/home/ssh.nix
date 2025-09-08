@@ -3,7 +3,6 @@
   programs.ssh = {
     enable = true;
     
-    # Disable default config to avoid future warnings
     enableDefaultConfig = false;
     
     matchBlocks = {
