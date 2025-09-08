@@ -25,7 +25,6 @@
   };
 
   environment.systemPackages = with pkgs; [ networkmanagerapplet
-  protonmail-bridge
   openssl
   netcat-gnu
   inetutils
