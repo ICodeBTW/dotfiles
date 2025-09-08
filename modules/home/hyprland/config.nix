@@ -22,7 +22,7 @@ in
         "swww-daemon &"
 
         "systemctl --user start hyprpolkitagent"
-        "protonmail-bridge --noninteractive"
+        # "protonmail-bridge --noninteractive"
         "hyprlock"
 
         "${terminal} --gtk-single-instance=true --quit-after-last-window-closed=false --initial-window=false"
@@ -174,7 +174,7 @@ bind = [
   "$mainMod, F, togglefloating,"
   "$mainMod, P, pseudo,"
   "$mainMod, X, togglesplit,"   # nix extra
-
+  
   # fullscreen
   "$mainMod SHIFT, F, fullscreen, 1" # hyprland config wins
 
@@ -186,10 +186,7 @@ bind = [
   "$mainMod, N, exec, swaync-client -t -sw"
   "CTRL SHIFT, Escape, exec, hyprctl dispatch exec '[workspace 9] missioncenter'"
   "$mainMod, equal, exec, woomer"
-  "$mainMod, T, exec, toggle-oppacity"
-  "$mainMod SHIFT, B, exec, toggle-waybar"
   "$mainMod, C, exec, hyprpicker -a"
-  "$mainMod, W, exec, wallpaper-picker"
   "$mainMod SHIFT, W, exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
 
   # screenshots
