@@ -14,7 +14,6 @@
       gcr
       gnome-settings-daemon
       gnome-keyring
-      seahorse
     ];
   };
   services.logind.settings.Login = {

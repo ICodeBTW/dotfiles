@@ -10,4 +10,5 @@
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [ ];
   programs.firefox.enable = true;
+  programs.seahorse.enable = true;
 }
