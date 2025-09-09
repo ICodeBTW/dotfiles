@@ -79,7 +79,7 @@
     },
     "backlight#mobile": {
       "label": " 󰃠 ",
-      "device": "panel"
+      "device": "intel_backlight"
     },
     "volume": {
       "label": "",
