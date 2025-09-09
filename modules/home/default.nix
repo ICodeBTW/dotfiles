@@ -7,7 +7,6 @@
     ./gaming.nix                      # packages related to gaming
     ./alacritty.nix                     # terminal
     ./git.nix                         # version control
-    ./gnome-keyring.nix                       # gnome keyring
     ./gtk.nix                         # gtk theme
     ./hyprland                        # window manager
     ./p10k/p10k.nix

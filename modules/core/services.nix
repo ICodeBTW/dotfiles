@@ -13,6 +13,8 @@
     dbus.packages = with pkgs; [
       gcr
       gnome-settings-daemon
+      gnome-keyring
+      seahorse
     ];
   };
   services.logind.settings.Login = {
