@@ -4,7 +4,7 @@
     ./bootloader.nix
     ./hardware.nix
     # ./xserver.nix
-    ./greeter.nix
+    ./greeter
     ./network.nix
     ./nh.nix
     ./pipewire.nix
