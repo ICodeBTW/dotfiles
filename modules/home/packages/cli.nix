@@ -63,7 +63,6 @@
     ani-cli
     imv
     lowfi
-    mpv
 
     ## Utilities
     entr                              # perform action when file change
