@@ -79,7 +79,8 @@
     },
     "backlight#mobile": {
       "label": " 󰃠 ",
-      "device": "intel_backlight"
+      "device": "intel_backlight",
+      "comment": "Use ls /sys/class/backlight"
     },
     "volume": {
       "label": "",
