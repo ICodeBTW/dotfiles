@@ -1,8 +1,18 @@
- # minimal SDDM greeter (baseline)
+# modules/core/greeter.nix
+{ config, pkgs, lib, ... }:
+
+let
+  andromeda-sddm = pkgs.callPackage ./themes/andromeda-sddm.nix { };
+in
 {
+  environment.systemPackages = [
+    andromeda-sddm
+    pkgs.kdePackages.qtmultimedia
+  ];
+
   services.displayManager.sddm = {
-    enable = true;             # turn on SDDM
-    wayland = true;
-    theme = "/etc/sddm/themes/hyprlock-inspired"; # Point to your custom theme directory    wayland.enable = true;    
+    enable = true;
+    wayland.enable = true;
+    theme = "Andromeda";
   };
 }
