@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     ## Utils
     bottles
-    steam
     # gamemode
     # gamescope
     # winetricks

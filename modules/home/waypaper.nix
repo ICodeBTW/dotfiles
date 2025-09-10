@@ -15,7 +15,7 @@
     subfolders = False
     show_hidden = False
     show_gifs_only = False
-    post_command = pkill .waypaper-wrapp
+
     number_of_columns = 3
     swww_transition_type = any
     swww_transition_step = 90
@@ -25,3 +25,6 @@
     use_xdg_state = False
   '';
 }
+
+
+    # post_command = pkill .waypaper-wrapp
