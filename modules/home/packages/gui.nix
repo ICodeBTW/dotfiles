@@ -28,7 +28,6 @@ hyprpolkitagent
     protonvpn-gui   
     jetbrains.idea-ultimate
     spotify
-    vlc
     pinta
     neovim
     calibre
