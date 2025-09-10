@@ -13,7 +13,7 @@
       quick-renames-with-pause-in-between = true;
       show-edit-icon-toolbar = false;
       show-full-path-titles = false;
-      show-hidden-files = true;
+      show-hidden-files = false;
       show-home-icon-toolbar = true;
       show-new-folder-icon-toolbar = true;
       show-open-in-terminal-toolbar = false;

@@ -63,6 +63,7 @@
     ani-cli
     imv
     lowfi
+    mpv
 
     ## Utilities
     entr                              # perform action when file change
@@ -80,6 +81,7 @@
     wget
     wl-clipboard                      # clipboard utils for wayland (wl-copy, wl-paste)
     xdg-utils
+    blueman
 
     winetricks
     wineWowPackages.waylandFull

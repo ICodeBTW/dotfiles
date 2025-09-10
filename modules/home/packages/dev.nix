@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     ## Lsp
@@ -18,4 +18,6 @@
     valgrind
     llvmPackages_20.clang-tools
   ];
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 }
