@@ -17,6 +17,9 @@
     gnumake
     valgrind
     llvmPackages_20.clang-tools
+
+    #Nodejs
+    nodejs
   ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
