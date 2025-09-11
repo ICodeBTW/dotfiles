@@ -1,0 +1,7 @@
+{...}:
+
+{
+  import = [
+    "./wlogout.nix"
+  ]; 
+}

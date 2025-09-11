@@ -1,19 +1,27 @@
-{ username, ... }:
+{ pkgs, ... }:
 {
-  services = {
-    xserver = {
-      enable = true;
-      xkb.layout = "us";
-    };
+  # Minimal X11 infrastructure for XWayland
+  services.xserver.enable = true;
 
-    displayManager.autoLogin = {
-      enable = true;
-      user = "${username}";
-    };
-    libinput = {
-      enable = true;
-    };
+  # Essential packages for Steam/Gaming on Wayland
+  environment.systemPackages = with pkgs; [
+    xwayland
+    xorg.xhost
+    xorg.xauth
+    xorg.xrandr
+    xorg.libX11
+    xorg.libXext
+    xorg.libXrandr
+    xorg.libXinerama
+    xorg.libXcursor
+    xorg.libXi
+    mesa
+    libGL
+  ];
+
+  # Graphics support (crucial for Steam)
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
   };
-  # To prevent getting stuck at shutdown
-  systemd.settings.Manager.DefaultTimeoutStopSec = "10s";
 }
