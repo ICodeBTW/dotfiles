@@ -6,48 +6,47 @@
 {
   home.packages = with pkgs; [
     wlogout
-    hyprlock  # Make sure hyprlock is available
   ];
 
   xdg.configFile = {
-    "wlogout/layout.json".text = builtins.toJSON [
+    "wlogout/layout".text = ''
       {
-        label = "lock";
-        action = "${pkgs.hyprlock}/bin/hyprlock";
-        text = "Lock";
-        keybind = "l";
-      }
-      {
-        label = "hibernate";
-        action = "systemctl hibernate";
-        text = "Hibernate";
-        keybind = "h";
-      }
-      {
-        label = "logout";
-        action = "loginctl terminate-user $USER";
-        text = "Logout";
-        keybind = "e";
-      }
-      {
-        label = "shutdown";
-        action = "systemctl poweroff";
-        text = "Shutdown";
-        keybind = "s";
-      }
-      {
-        label = "suspend";
-        action = "systemctl suspend";
-        text = "Suspend";
-        keybind = "u";
-      }
-      {
-        label = "reboot";
-        action = "systemctl reboot";
-        text = "Reboot";
-        keybind = "r";
-      }
-    ];
+    "label" : "lock",
+    "action" : "${pkgs.hyprlock}/bin/hyprlock",
+    "text" : "Lock",
+    "keybind" : "l"
+}
+{
+    "label" : "hibernate",
+    "action" : "systemctl hibernate",
+    "text" : "Hibernate",
+    "keybind" : "h"
+}
+{
+    "label" : "logout",
+    "action" : "loginctl terminate-user $USER",
+    "text" : "Logout",
+    "keybind" : "e"
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown",
+    "keybind" : "s"
+}
+{
+    "label" : "suspend",
+    "action" : "systemctl suspend",
+    "text" : "Suspend",
+    "keybind" : "u"
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot",
+    "keybind" : "r"
+}
+    '';
     
     "wlogout/style.css".text = ''
       * {
