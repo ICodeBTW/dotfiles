@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, services, ... }:
 {
   home.packages = with pkgs; [
     ## Lsp
@@ -20,7 +20,15 @@
 
     #Nodejs
     nodejs
+
+    #python
+    python3
+
+ 
+
   ];
+
+ 
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 }

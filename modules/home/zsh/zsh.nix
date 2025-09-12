@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs,config, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -12,11 +12,6 @@
         name = "fzf-tab";
         src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
       }
-      # {
-      #   name = "powerlevel10k";
-      #   src = pkgs.zsh-powerlevel10k;
-      #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      # }
       {
         name = "oh-my-posh";
         src = pkgs.oh-my-posh;
@@ -120,9 +115,9 @@
       setopt hist_verify
 
 
-      if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-        eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml )"
-      fi
+    if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${config.xdg.configHome}/ohmyposh/zen.toml)"
+fi
 
       # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
       # - The first argument to the function ($1) is the base path to start traversal
