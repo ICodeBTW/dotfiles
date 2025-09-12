@@ -55,7 +55,6 @@
       window {
         background-color: rgba(12, 12, 12, 0.9);
         opacity: 0.9;
-        border-radius: 2%;
       }
       button {
         color: #FFFFFF;
@@ -69,6 +68,7 @@
       button:focus, button:active, button:hover {
         background-color: #3194f7;
         outline-style: none;
+        text-shadow: none;
       }
       #lock {
         background-image: url("${pkgs.wlogout}/share/wlogout/icons/lock.png");

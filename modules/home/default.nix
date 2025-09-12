@@ -9,7 +9,7 @@
     ./git.nix                         # version control
     ./gtk.nix                         # gtk theme
     ./hyprland                        # window manager
-    ./p10k/p10k.nix
+    ./ohmyposh/ohmyposh.nix
     ./packages                        # other packages
     ./rofi.nix                        # launcher
     ./ssh.nix                         # ssh config
