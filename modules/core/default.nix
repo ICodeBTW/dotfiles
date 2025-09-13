@@ -18,6 +18,5 @@
     ./user.nix
     ./wayland.nix
     ./virtualization.nix
-    ./mysql.nix
   ];
 }

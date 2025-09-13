@@ -20,6 +20,7 @@
     ./waypaper.nix                    # GUI wallpaper picker
     ./xdg-mimes.nix                   # xdg config
     ./zsh                             # shell
+    ./tmux.nix
     ./proton-bridge.nix
     ./nemo.nix
   ];

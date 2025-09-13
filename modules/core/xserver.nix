@@ -18,10 +18,4 @@
     mesa
     libGL
   ];
-
-  # Graphics support (crucial for Steam)
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
-  };
 }

@@ -8,6 +8,7 @@ in
     graphics = {
       enable = true;
       package = hyprland-pkgs.mesa;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         intel-media-driver
         (vaapiIntel.override { enableHybridCodec = true; })

@@ -29,6 +29,7 @@
     translate-shell                   # cli translator
     woomer
     yt-dlp-light
+    bat
 
     ## TUI
     epy                               # ebook reader
