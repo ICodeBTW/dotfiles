@@ -1,11 +1,24 @@
-{...}:
-
+{ pkgs, ... }:
 {
+  programs.tmux = {
+    enable = false;
 
-programs.tmux = {
-  enable = true;
-  clock24 = true;
-  extraConfig = '' # used for less common options, intelligently combines if defined in multiple places.
-  '';
-};
+    plugins = with pkgs; [
+    ];
+
+    extraConfig = ''
+      set -g default-terminal "xterm-256color"
+      set-environment -g COLORTERM "truecolor"
+    '';
+  };
+
+
+  # Until Tmux works
+  programs.zellij = {
+    
+    enable = true;
+
+
+  };
+
 }

@@ -13,6 +13,7 @@
     ripgrep                           # grep replacement
     tldr
 
+
     ## Tools / useful cli
     aoc-cli                           # Advent of Code command-line tool
     asciinema
@@ -30,6 +31,7 @@
     woomer
     yt-dlp-light
     bat
+    dysk
 
     ## TUI
     epy                               # ebook reader

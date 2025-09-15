@@ -155,7 +155,7 @@ bind = [
   "$mainMod, RETURN, exec, alacritty"
 
   # browsers / apps
-  "$mainMod, B, exec, [workspace 1 silent] ${browser}"
+  "$mainMod, B, exec, [workspace 2 silent] ${browser}"
   "$mainMod, E, exec, nemo"                # nix extra
   "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
 
