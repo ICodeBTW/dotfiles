@@ -36,7 +36,7 @@ in
     modules-right = [
       "cpu"
       "memory"
-      (if (host == "desktop") then "disk" else "")
+      "disk"
       "pulseaudio"
       "network"
       "battery"
@@ -49,6 +49,7 @@ in
           today = "<span color='#98971A'><b>{}</b></span>";
         };
       };
+      timezones = ["Asia/Kolkata" "Europe/London" "Australia/Sydney" "Asia/Tokyo" "America/Los_Angeles"];
       format = "  {:%H:%M}";
       tooltip = "true";
       tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
