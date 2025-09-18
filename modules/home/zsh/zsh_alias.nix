@@ -20,7 +20,7 @@
       tree = "eza --icons --tree --group-directories-first";
 
       # Nixos
-      cdnix = "cd ~/nixos-config && codium ~/nixos-config";
+      cdnix = "cd ~/.nixos-config && code ~/.nixos-config";
       ns = "nom-shell --run zsh";
       nd = "nom develop --command zsh";
       nb = "nom build";
@@ -29,6 +29,10 @@
       nfs = "nh os switch";
       nfu = "nh os switch --update";
       # nix-search = "nh search";
+
+      # dev shells
     };
+
+
   };
 }

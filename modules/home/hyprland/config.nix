@@ -24,8 +24,8 @@ in
         "systemctl --user start hyprpolkitagent"
         "systemctl --user start proton-bridge"
 
-        "[workspace 1 silent] ${browser}"
-        "[workspace 2 silent] ${terminal}"
+        "[workspace 2 silent] ${browser}"
+        "[workspace 1 silent] ${terminal}"
       ];
 
       input = {
@@ -145,9 +145,6 @@ in
 };
 
 bind = [
-  # show keybinds list (Nix-only)
-  "$mainMod, F1, exec, show-keybinds"
-
   # terminals
   "$mainMod, Return, exec, ${terminal} --gtk-single-instance=true"
   "ALT, Return, exec, [float; size 1111 700] ${terminal}"
@@ -165,8 +162,6 @@ bind = [
   "$mainMod SHIFT, M, exit,"
   "$mainMod, L, exec, hyprlock"
   "$mainMod, Escape, exec, swaylock"
-  "ALT, Escape, exec, hyprlock"
-  "$mainMod SHIFT, Escape, exec, power-menu"
 
   # floating / dwindle / split
   "$mainMod, F, togglefloating,"
@@ -178,7 +173,7 @@ bind = [
 
   # app launchers
   "$mainMod, D, exec, rofi -show drun || pkill rofi"
-  "$mainMod SHIFT, D, exec, webcord --enable-features=UseOzonePlatform --ozone-platform=wayland"
+  "$mainMod SHIFT, D, exec, vesktop"
 
   # misc apps
   "$mainMod, N, exec, swaync-client -t -sw"

@@ -14,6 +14,7 @@
     tldr
 
 
+
     ## Tools / useful cli
     aoc-cli                           # Advent of Code command-line tool
     asciinema
@@ -31,6 +32,7 @@
     woomer
     yt-dlp-light
     bat
+    bat-extras.core
     dysk
 
     ## TUI
