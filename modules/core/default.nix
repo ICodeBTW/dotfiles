@@ -4,7 +4,7 @@
     ./bootloader.nix
     ./hardware.nix
     ./xserver.nix
-    ./stylix.nix
+    ./stylix
     ./greeter.nix
     ./network.nix
     ./nh.nix

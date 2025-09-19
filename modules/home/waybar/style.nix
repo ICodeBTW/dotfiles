@@ -1,108 +1,101 @@
-{ ... }:
+# global style 
+  # /* Fonts: can be driven by Stylix targets; override here if desired */
+  # font-family: Maple Mono;
+  # font-weight: bold;
+  # opacity: 1;
+  # font-size: 18px;
+
+
+
+{ config, ... }:
 let
-  custom = {
-    font = "Maple Mono";
-    font_size = "18px";
-    font_weight = "bold";
-    text_color = "#FBF1C7";
-    background_0 = "#1D2021";
-    background_1 = "#282828";
-    border_color = "#A89984";
-    red = "#CC241D";
-    green = "#98971A";
-    yellow = "#FABD2F";
-    blue = "#458588";
-    magenta = "#B16286";
-    cyan = "#689D6A";
-    orange = "#D65D0E";
-    orange_bright = "#FE8019";
-    opacity = "1";
-    indicator_height = "2px";
-  };
+  c = config.lib.stylix.colors;          # hex without # [web:22]
+  h = c.withHashtag;                      # hex with #     [web:22]
 in
 {
-  programs.waybar.style = with custom; ''
-    * {
-      border: none;
-      border-radius: 0px;
-      padding: 0;
-      margin: 0;
-      font-family: ${font};
-      font-weight: ${font_weight};
-      opacity: ${opacity};
-      font-size: ${font_size};
-    }
+  programs.waybar.style = ''
+* {
+  border: none;
+  border-radius: 0px;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
 
-    window#waybar {
-      background: #282828;
-      border-top: 1px solid ${border_color};
-    }
+window#waybar {
+  background-color: ${h.base00};
+  border-top: 1px solid ${h.base02};
+  color: ${h.base05};
+}
 
-    tooltip {
-      background: ${background_1};
-      border: 1px solid ${border_color};
-    }
-    tooltip label {
-      margin: 5px;
-      color: ${text_color};
-    }
+tooltip {
+  background-color: ${h.base01};
+  border: 1px solid ${h.base02};
+}
+tooltip label {
+  margin: 5px;
+  color: ${h.base05};
+}
 
-    #workspaces {
-      padding-left: 15px;
-    }
-    #workspaces button {
-      color: ${yellow};
-      padding-left:  5px;
-      padding-right: 5px;
-      margin-right: 10px;
-    }
-    #workspaces button.empty {
-      color: ${text_color};
-    }
-    #workspaces button.active {
-      color: ${orange_bright};
-    }
+/* Hyprland workspaces */
+#workspaces {
+  padding-left: 15px;
+}
+#workspaces button {
+  color: ${h.base0A}; /* yellow accent */ 
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 10px;
+}
+#workspaces button.empty {
+  color: ${h.base05};
+}
+#workspaces button.active {
+  color: ${h.base09}; /* bright orange accent */
+}
 
-    #clock {
-      color: ${text_color};
-    }
+/* Clock */
+#clock { color: ${h.base05}; }
 
-    #tray {
-      margin-left: 10px;
-      color: ${text_color};
-    }
-    #tray menu {
-      background: ${background_1};
-      border: 1px solid ${border_color};
-      padding: 8px;
-    }
-    #tray menuitem {
-      padding: 1px;
-    }
+/* Tray */
+#tray {
+  margin-left: 10px;
+  color: ${h.base05};
+}
+#tray menu {
+  background-color: ${h.base01};
+  border: 1px solid ${h.base02};
+  padding: 8px;
+}
+#tray menuitem { padding: 1px; }
 
-    #pulseaudio, #network, #cpu, #memory, #disk, #battery, #language, #custom-notification {
-      padding-left: 5px;
-      padding-right: 5px;
-      margin-right: 10px;
-      color: ${text_color};
-    }
+/* Right-side metrics and network/audio */
+#pulseaudio, #network, #cpu, #memory, #disk, #battery, #language, #custom-notification {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 10px;
+  color: ${h.base05};
+  background-color: ${h.base00};
+}
 
-    #pulseaudio, #language {
-      margin-left: 15px;
-    }
+/* Spacing adjustments */
+#pulseaudio, #language { margin-left: 15px; }
 
-    #custom-notification {
-      margin-left: 15px;
-      padding-right: 2px;
-      margin-right: 5px;
-    }
+/* Custom notifications */
+#custom-notification {
+  margin-left: 15px;
+  padding-right: 2px;
+  margin-right: 5px;
+}
 
-    #custom-launcher {
-      font-size: 20px;
-      color: ${text_color};
-      font-weight: bold;
-      margin-left: 15px;
-      padding-right: 10px;
-    }
+/* Custom launcher */
+#custom-launcher {
+  font-size: 20px;
+  color: ${h.base05};
+  font-weight: bold;
+  margin-left: 15px;
+  padding-right: 10px;
+}
   '';
 }

@@ -48,8 +48,8 @@ in
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-        "col.active_border"="rgb(cdd6f4)";
-        "col.inactive_border"= "rgba(595959aa)";
+        # "col.active_border"="rgb(cdd6f4)";
+        # "col.inactive_border"= "rgba(595959aa)";
         # border_part_of_window = false;
         no_border_on_floating = false;
         allow_tearing = true;
@@ -106,7 +106,7 @@ in
           offset = "0 2";
           range = 20;
           render_power = 3;
-          color = "rgba(00000055)";
+          # color = "rgba(00000055)";
         };
       };
 

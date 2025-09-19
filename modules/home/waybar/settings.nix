@@ -1,25 +1,10 @@
-{ host, ... }:
+{ config, host, ... }:
 let
-  custom = {
-   font = "Maple Mono";
-    font_size = "18px";
-    font_weight = "bold";
-    text_color = "#F8F8F2";       # light text
-    background_0 = "#1E2330";     # dark bg
-    background_1 = "#2C3445";     # slightly lighter bg
-    border_color = "#9B6B43";     # warm brown
-    pink = "#F4A9C6";             # sakura pink
-    light_pink = "#FFD1DC";       # light petals
-    blue = "#87C3E8";             # sky blue
-    green = "#8FBF8F";            # leaves
-    cyan = "#689D6A"; 
-    orange = "#D65D0E";
-    opacity = "1";
-    indicator_height = "2px";
-  };
+  c = config.lib.stylix.colors;          # Base16 palette (hex without #) [web:22]
+  h = c.withHashtag;                      # Same palette with leading #      [web:22]
 in
 {
-  programs.waybar.settings.mainBar = with custom; {
+  programs.waybar.settings.mainBar = {
     position = "top";
     layer = "top";
     height = 28;
@@ -27,6 +12,7 @@ in
     margin-bottom = 0;
     margin-left = 0;
     margin-right = 0;
+
     modules-left = [
       "custom/launcher"
       "hyprland/workspaces"
@@ -40,39 +26,38 @@ in
       "pulseaudio"
       "network"
       "battery"
-      "hyprland/language"
       "custom/notification"
     ];
+
     clock = {
+      format = "  {:%H:%M %Z}";
+      tooltip = "true";
+      format-alt = "  {:%d/%m %Z}";
+      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+      timezones = [
+        "Asia/Kolkata"
+        "Europe/London"
+        "Australia/Sydney"
+        "Asia/Tokyo"
+        "America/Los_Angeles"
+      ];
+      actions = {
+        on-scroll-up = "tz_up";
+        on-scroll-down = "tz_down";
+      };
+      interval = 60;
       calendar = {
         format = {
-          today = "<span color='#98971A'><b>{}</b></span>";
+          # Example: highlight “today” using a scheme accent (green-ish base0B)
+          today = "<span color='${h.base0B}'><b>{}</b></span>";
         };
       };
-      timezones = ["Asia/Kolkata" "Europe/London" "Australia/Sydney" "Asia/Tokyo" "America/Los_Angeles"];
-      format = "  {:%H:%M}";
-      tooltip = "true";
-      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-      format-alt = "  {:%d/%m}";
     };
+
     "hyprland/workspaces" = {
       active-only = false;
       disable-scroll = true;
-      format = "{icon}";
       on-click = "activate";
-      # format-icons = {
-      #   "1" = "I";
-      #   "2" = "II";
-      #   "3" = "III";
-      #   "4" = "IV";
-      #   "5" = "V";
-      #   "6" = "VI";
-      #   "7" = "VII";
-      #   "8" = "VIII";
-      #   "9" = "IX";
-      #   "10" = "X";
-      #   sort-by-number = true;
-      # };
       persistent-workspaces = {
         "1" = [ ];
         "2" = [ ];
@@ -81,90 +66,86 @@ in
         "5" = [ ];
       };
     };
+
+    # CPU: use Base16 accent for the icon color; no hex literals
     cpu = {
-      format = "<span foreground='${light_pink}'> </span> {usage}%";
-      format-alt = "<span foreground='${light_pink}'> </span> {avg_frequency} GHz";
+      format = "<span color='${h.base0D}'> </span>{usage}%";
+      format-alt = "<span color='${h.base0D}'> </span>{avg_frequency} GHz";
       interval = 2;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
+      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] alacritty --title alacritty --command btop'";
     };
+
+    # Memory: typically green base0B
     memory = {
-      format = "<span foreground='${green}'>󰟜 </span>{}%";
-      format-alt = "<span foreground='${green}'>󰟜 </span>{used} GiB"; # 
+      format = "<span color='${h.base0B}'>󰟜 </span>{}%";
+      format-alt = "<span color='${h.base0B}'>󰟜 </span>{used} GiB";
       interval = 2;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
+      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] alacritty --title alacritty --command btop'";
     };
+
+    # Disk: orange/yellow accent base0A or base09
     disk = {
-      # path = "/";
-      format = "<span foreground='${orange}'>󰋊 </span>{percentage_used}%";
+      format = "<span color='${h.base09}'>󰋊 </span>{percentage_used}%";
       interval = 60;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
+      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] alacritty --title alacritty --command btop'";
     };
+
     network = {
-      format-wifi = "<span foreground='${green}'> </span> {signalStrength}%";
-      format-ethernet = "<span foreground='${green}'>󰀂 </span>";
+      format-wifi = "<span color='${h.base0B}'> </span>{signalStrength}%";
+      format-ethernet = "<span color='${h.base0B}'>󰀂 </span>";
       tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
       format-linked = "{ifname} (No IP)";
-      format-disconnected = "<span foreground='${green}'>󰖪 </span>";
+      format-disconnected = "<span color='${h.base03}'>󰖪 </span>";
     };
+
     tray = {
       icon-size = 20;
       spacing = 8;
     };
+
     pulseaudio = {
       format = "{icon} {volume}%";
-      format-muted = "<span foreground='${blue}'> </span> {volume}%";
+      format-muted = "<span color='${h.base0D}'> </span>{volume}%";
       format-icons = {
-        default = [ "<span foreground='${blue}'> </span>" ];
+        default = [ "<span color='${h.base0D}'> </span>" ];
       };
       scroll-step = 2;
       on-click = "pamixer -t";
       on-click-right = "pavucontrol";
     };
+
     battery = {
-      format = "<span foreground='${blue}'>{icon}</span> {capacity}%";
-      format-icons = [
-        " "
-        " "
-        " "
-        " "
-        " "
-      ];
-      format-charging = "<span foreground='${blue}'> </span>{capacity}%";
-      format-full = "<span foreground='${blue}'> </span>{capacity}%";
-      format-warning = "<span foreground='${blue}'> </span>{capacity}%";
+      format = "<span color='${h.base0D}'>{icon}</span> {capacity}%";
+      format-icons = [ " " " " " " " " " " ];
+      format-charging = "<span color='${h.base0D}'> </span>{capacity}%";
+      format-full = "<span color='${h.base0D}'> </span>{capacity}%";
+      format-warning = "<span color='${h.base08}'> </span>{capacity}%";
       interval = 5;
-      states = {
-        warning = 20;
-      };
+      states = { warning = 20; };
       format-time = "{H}h{M}m";
       tooltip = true;
       tooltip-format = "{time}";
     };
-    "hyprland/language" = {
-      format = "<span foreground='#FABD2F'> </span> {}";
-      format-fr = "FR";
-      format-en = "US";
-      on-click = "hyprctl switchxkblayout at-translated-set-2-keyboard next";
-    };
+
     "custom/launcher" = {
       format = "";
-      on-click = "random-wallpaper";
-      on-click-right = "rofi -show drun";
       tooltip = "true";
       tooltip-format = "Random Wallpaper";
     };
+
     "custom/notification" = {
       tooltip = false;
       format = "{icon} ";
+      # Drive all glyph accents from the scheme
       format-icons = {
-        notification = "<span foreground='pink'><sup></sup></span>  <span foreground='${pink}'></span>";
-        none = "  <span foreground='${pink}'></span>";
-        dnd-notification = "<span foreground='pink'><sup></sup></span>  <span foreground='${pink}'></span>";
-        dnd-none = "  <span foreground='${pink}'></span>";
-        inhibited-notification = "<span foreground='pink'><sup></sup></span>  <span foreground='${pink}'></span>";
-        inhibited-none = "  <span foreground='${pink}'></span>";
-        dnd-inhibited-notification = "<span foreground='pink'><sup></sup></span>  <span foreground='${pink}'></span>";
-        dnd-inhibited-none = "  <span foreground='${pink}'></span>";
+        notification = "<span color='${h.base09}'><sup></sup></span>  <span color='${h.base09}'></span>";
+        none = "  <span color='${h.base09}'></span>";
+        dnd-notification = "<span color='${h.base09}'><sup></sup></span>  <span color='${h.base09}'></span>";
+        dnd-none = "  <span color='${h.base09}'></span>";
+        inhibited-notification = "<span color='${h.base09}'><sup></sup></span>  <span color='${h.base09}'></span>";
+        inhibited-none = "  <span color='${h.base09}'></span>";
+        dnd-inhibited-notification = "<span color='${h.base09}'><sup></sup></span>  <span color='${h.base09}'></span>";
+        dnd-inhibited-none = "  <span color='${h.base09}'></span>";
       };
       return-type = "json";
       exec-if = "which swaync-client";

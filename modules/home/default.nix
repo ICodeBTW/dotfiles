@@ -7,7 +7,8 @@
     ./gaming.nix                      # packages related to gaming
     ./alacritty.nix                     # terminal
     ./git.nix                         # version control
-    ./gtk.nix                         # gtk theme
+    # ./gtk.nix                         # gtk theme
+    ./firefox.nix                     # browser setting
     ./hyprland                        # window manager
     ./ohmyposh/ohmyposh.nix
     ./packages                        # other packages
