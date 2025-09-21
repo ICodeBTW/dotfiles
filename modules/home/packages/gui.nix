@@ -15,15 +15,13 @@
     gnome-disk-utility
     mission-center # GUI resources monitor
     zenity
-hyprpolkitagent
-    ## Level editor
-    ldtk
-    tiled
+    hyprpolkitagent
+
 
     #Mail 
     thunderbird
-    # protonmail-bridge-gui
-    
+  
+      
     # mics
     protonvpn-gui   
     jetbrains.idea-ultimate

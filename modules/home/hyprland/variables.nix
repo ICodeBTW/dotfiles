@@ -25,7 +25,7 @@
     XDG_SESSION_DESKTOP = "Hyprland";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
-    GTK_THEME = "Colloid-Green-Dark-Gruvbox";
+    # GTK_THEME = "Colloid-Green-Dark-Gruvbox";
     GRIMBLAST_HIDE_CURSOR = 0;
     GNOME_KEYRING_CONTROL = "";  # Will be set by gnome-keyring-daemon
     GSM_SKIP_SSH_AGENT_WORKAROUND = 1;

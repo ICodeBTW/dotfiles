@@ -8,7 +8,7 @@
   stylix.image = ../../../wallpapers/wallpaper.jpeg;
 
   stylix.polarity = "dark";
-
+  stylix.targets.gtk.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa-dragon.yaml";
   
   
@@ -55,6 +55,7 @@
     noto-fonts-emoji
     fantasque-sans-mono
     maple-mono.truetype-autohint
+    papirus-icon-theme
   ];
 
 
