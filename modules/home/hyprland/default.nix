@@ -6,7 +6,7 @@
     ./hyprlock.nix
     ./variables.nix
     ./wlogout.nix
-    # ./plugins #Conflict
+    ./plugins
     inputs.hyprland.homeManagerModules.default
   ];
 }

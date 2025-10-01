@@ -69,6 +69,7 @@
     imv
     lowfi
     mpv
+    playerctl
 
     ## Utilities
     entr                              # perform action when file change

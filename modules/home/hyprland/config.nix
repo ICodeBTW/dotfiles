@@ -20,9 +20,8 @@ in
         "swaync &"
         "hyprctl setcursor Bibata-Modern-Ice 24 &"
         "swww-daemon &"
-        "waypaper --restore --backend swww"
-        "systemctl --user start hyprpolkitagent"
-        "systemctl --user start proton-bridge"
+        # "systemctl --user start hyprpolkitagent"
+        # "systemctl --user start proton-bridge"
 
         "[workspace 2 silent] ${browser}"
         "[workspace 1 silent] ${terminal}"

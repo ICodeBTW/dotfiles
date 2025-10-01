@@ -1,101 +1,256 @@
-# global style 
-  # /* Fonts: can be driven by Stylix targets; override here if desired */
-  # font-family: Maple Mono;
-  # font-weight: bold;
-  # opacity: 1;
-  # font-size: 18px;
-
-
-
 { config, ... }:
 let
-  c = config.lib.stylix.colors;          # hex without # [web:22]
-  h = c.withHashtag;                      # hex with #     [web:22]
+  c = config.lib.stylix.colors;          # hex without #
+  h = c.withHashtag;                      # hex with #
 in
 {
   programs.waybar.style = ''
 * {
-  border: none;
-  border-radius: 0px;
-  padding: 0;
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
+	font-family: JetBrainsMono, Symbols Nerd Font;
+	font-weight: bold;
+	font-size: 16px;
+	min-height: 0;
 }
+
+@define-color bg ${h.base00};
+@define-color bg3 ${h.base01};
+@define-color bg2 ${h.base00};
+@define-color fg ${h.base05};
+@define-color pink ${h.base0E};
+@define-color green ${h.base0B};
+@define-color fl ${h.base0F};
+@define-color blue ${h.base0D};
+@define-color red ${h.base08};
+@define-color vl ${h.base0C};
+@define-color yellow ${h.base0A};
+
 
 window#waybar {
-  background-color: ${h.base00};
-  border-top: 1px solid ${h.base02};
-  color: ${h.base05};
+	border-radius: 10px;
+	background-color: @bg;
 }
 
-tooltip {
-  background-color: ${h.base01};
-  border: 1px solid ${h.base02};
+
+
+#custom-menu {
+	padding: 2px 0px;
+	margin: 5px 5px 5px 10px;
+	color: #a0a0a0;
+	background-color: @bg2;
+	border: none;
+	border-radius: 20px;
 }
-tooltip label {
-  margin: 5px;
-  color: ${h.base05};
+#custom-menu:hover {
+	color: #d0d0d0;
+}
+#custom-weather {
+	padding: 0px 5px;
+	margin: 10px;
+	background-color: @bg3;
+	color: #a0a0a0;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
+}
+#custom-media {
+	padding: 0px 5px;
+	margin: 10px;
+	background-color: @bg3;
+	color: #a0a0a0;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
+
 }
 
-/* Hyprland workspaces */
 #workspaces {
-  padding-left: 15px;
+	padding: 5px;
+	margin: 5px;
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
 }
+
 #workspaces button {
-  color: ${h.base0A}; /* yellow accent */ 
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-right: 10px;
+	padding: 0px 12px;
+	margin: 0 3px;
+	background-color: @bg3;
+	color: #a0a0a0;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
+	transition: all 0.2s ease;
 }
-#workspaces button.empty {
-  color: ${h.base05};
+
+#workspaces button:hover {
+  background-color: #3a3d4a;
+	color: #d0d0d0;
 }
+
 #workspaces button.active {
-  color: ${h.base09}; /* bright orange accent */
+	background-color: #a0a0a0;
+	color: #2d3748;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Clock */
-#clock { color: ${h.base05}; }
+#workspaces button.urgent {
+	background-color: #3a3d4a;
+	color: @red;
+}
 
-/* Tray */
+#window {
+	padding: 0px 20px;
+	margin: 5px;
+	color: @yellow;
+	background-color: @bg2;
+	border: none;
+	border-radius: 20px;
+}
+
+
+
+#custom-cmus {
+	padding: 2px 15px;
+	margin: 5px;
+	color: @fg;
+	background-color: @bg2;
+	border: none;
+	border-radius: 20px;
+}
+#custom-cmus:hover {
+	color: @yellow;
+}
+
+#custom-foot {
+	padding: 2px 10px 2px 15px;
+	margin: 5px 0 5px 5px;
+	color: @fg;
+	background-color: @bg2;
+	border: none;
+	border-radius: 20px 0 0 20px;
+}
+#custom-foot:hover {
+	color: @yellow;
+}
+
+#custom-nemo {
+	padding: 2px 15px 2px 10px;
+	margin: 5px 5px 5px 0;
+	color: @fg;
+	background-color: @bg2;
+	border: none;
+	border-radius: 0 20px 20px 0;
+}
+#custom-nemo:hover {
+	color: @yellow;
+}
+
+
+
 #tray {
-  margin-left: 10px;
-  color: ${h.base05};
-}
-#tray menu {
-  background-color: ${h.base01};
-  border: 1px solid ${h.base02};
-  padding: 8px;
-}
-#tray menuitem { padding: 1px; }
-
-/* Right-side metrics and network/audio */
-#pulseaudio, #network, #cpu, #memory, #disk, #battery, #language, #custom-notification {
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-right: 10px;
-  color: ${h.base05};
-  background-color: ${h.base00};
+	padding: 0px 5px;
+	margin: 10px;
+	background-color: @bg3;
+	color: #a0a0a0;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
 }
 
-/* Spacing adjustments */
-#pulseaudio, #language { margin-left: 15px; }
+#language {
+	padding: 0px 5px;
+	margin: 10px;
+	background-color: @bg3;
+	color: #a0a0a0;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
+}
+#language:hover {
+	color: #d0d0d0;
+    
+}
 
-/* Custom notifications */
+#battery {
+	padding: 0px 5px;
+	margin: 10px;
+	background-color: @bg3;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+#battery:hover {
+	color: #d0d0d0;
+}
+
+
+#pulseaudio {
+	padding: 0px 5px;
+	margin: 10px;
+	background-color: @bg3;
+	color: #a0a0a0;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
+}
+#pulseaudio.muted {
+	color: @red;
+}
+#pulseaudio:hover {
+	color: #d0d0d0;
+}
+
+#clock {
+	padding: 0px 5px;
+	margin: 10px;
+	background-color: @bg3;
+	color: #a0a0a0;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
+}
+#clock:hover {
+	color: @yellow;
+}
+
 #custom-notification {
-  margin-left: 15px;
-  padding-right: 2px;
-  margin-right: 5px;
+	padding: 0px 5px;
+	margin: 10px;
+	background-color: @bg3;
+	color: #a0a0a0;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 14px;
 }
 
-/* Custom launcher */
-#custom-launcher {
-  font-size: 20px;
-  color: ${h.base05};
-  font-weight: bold;
-  margin-left: 15px;
-  padding-right: 10px;
+#custom-notification:hover {
+	color: #d0d0d0;
 }
+
+#custom-launcher {
+	padding: 0px 5px;
+	margin: 10px;
+	background-color: @bg;
+	color: #a0a0a0;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#custom-launcher:hover {
+	color: #d0d0d0;
+}
+
   '';
 }

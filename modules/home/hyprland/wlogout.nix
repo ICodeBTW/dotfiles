@@ -1,8 +1,16 @@
+# does not support hexbased trasperency :/
+
+
 {
   inputs,
+  config,
   pkgs,
   ...
 }:
+let
+  c = config.lib.stylix.colors; # Base16 palette (hex without #)
+  h = c.withHashtag; # Same palette with leading # 
+in 
 {
   home.packages = with pkgs; [
     wlogout
@@ -53,7 +61,7 @@
         background-image: none;
       }
       window {
-        background-color: rgba(12, 12, 12, 0.9);
+        background-color: rgba(12, 12, 12, 0.9); 
         opacity: 0.9;
       }
       button {
@@ -66,7 +74,7 @@
         background-size: 25%;
       }
       button:focus, button:active, button:hover {
-        background-color: #3194f7;
+        background-color: ${h.base03};
         outline-style: none;
         text-shadow: none;
       }

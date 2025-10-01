@@ -1,13 +1,22 @@
-{ config, inputs, pkgs, lib, host, stylix, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  lib,
+  host,
+  stylix,
+  ...
+}:
 
 let
-  colors = config.lib.stylix.colors;
-  # fonts = config.lib.stylix.fonts;
+  c = config.lib.stylix.colors; # Base16 palette (hex without #)
+  wallpaper = config.stylix.image;
+  h = c.withHashtag; # Same palette with leading #
 
   forcedBackground = lib.mkForce [
     {
       monitor = "";
-      path = "${../../../wallpapers/wallpaper.jpeg}";
+      path = "${wallpaper}";
       blur_passes = 2;
       contrast = 0.8916;
       brightness = 0.8172;
@@ -20,9 +29,9 @@ let
     {
       monitor = "";
       size = "300, 50";
-      color = "${colors.base02}55";
+      color = "${h.base02}";
       rounding = 10;
-      border_color = "${colors.base07}00";
+      border_color = "${h.base07}";
       position = "0, ${if host == "laptop" then "120" else "270"}";
       halign = "center";
       valign = "bottom";
@@ -33,7 +42,7 @@ let
     {
       monitor = "";
       text = ''cmd[update:1000] echo "$(date +'%k:%M')"'';
-      color = "${colors.base05}e6";
+      color = "${h.base05}";
       font_size = 115;
       # font_family = "${fonts.sansSerif.name} Bold";
       shadow_passes = 3;
@@ -44,7 +53,7 @@ let
     {
       monitor = "";
       text = ''cmd[update:1000] echo "- $(date +'%A, %B %d') -" '';
-      color = "${colors.base05}e6";
+      color = "${h.base05}";
       font_size = 18;
       # font_family = "${fonts.sansSerif.name}";
       shadow_passes = 3;
@@ -55,7 +64,7 @@ let
     {
       monitor = "";
       text = "  $USER";
-      color = "${colors.base05}ff";
+      color = "${h.base05}";
       font_size = 15;
       # font_family = "${fonts.sansSerif.name} Bold";
       position = "0, ${if host == "laptop" then "131" else "281"}";
@@ -73,10 +82,10 @@ let
       dots_size = 0.25;
       dots_spacing = 0.4;
       dots_center = true;
-      outer_color = "${colors.base02}55";
-      inner_color = "${colors.base02}55";
-      color = "${colors.base05}e6";
-      font_color = "${colors.base05}e6";
+      outer_color = "${h.base02}";
+      inner_color = "${h.base02}";
+      color = "${h.base05}";
+      font_color = "${h.base05}";
       font_size = 14;
       # font_family = "${fonts.sansSerif.name} Bold";
       fade_on_empty = false;

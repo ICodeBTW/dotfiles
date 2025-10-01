@@ -1,3 +1,5 @@
+# TODO: Stylix port
+
 { pkgs, ... }:
 {
   home.packages = with pkgs; [ swayosd ];

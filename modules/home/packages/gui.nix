@@ -25,6 +25,7 @@
     # mics
     protonvpn-gui   
     jetbrains.idea-ultimate
+    kdePackages.kate
     spotify
     pinta
     neovim

@@ -9,7 +9,7 @@
 
   stylix.polarity = "dark";
   stylix.targets.gtk.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa-dragon.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   
   
   # Cursor option
@@ -42,9 +42,12 @@
 
   stylix.icons = {
     enable = true;
-    package = pkgs.papirus-icon-theme.override { color = "black"; };
+    package = pkgs.papirus-icon-theme; 
+    dark = "Papirus-Dark";
+    light = "Papirus-Light";
   };
-  
+
+
   # Font packages to install
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -55,8 +58,12 @@
     noto-fonts-emoji
     fantasque-sans-mono
     maple-mono.truetype-autohint
+  ];
+
+  environment.systemPackages = with pkgs; [
     papirus-icon-theme
   ];
+
 
 
 
